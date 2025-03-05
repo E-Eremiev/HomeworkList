@@ -1,0 +1,62 @@
+static List<string> Reverse(List<string> a)
+{
+    //получавам масив -> връщам лист от reversed масив;
+    List<string> resoult = new List<string>();
+    for (int i = a.Count - 1; i >= 0; i--)
+    {
+        resoult.Add(a[i]);
+
+    }
+    return resoult;
+}
+static List<string> Disctinct(List<string> a)
+{
+    //получавам масив -> връщам лист от reversed масив;
+    List<string> resoult = new List<string>();
+    for (int i = 0; i < a.Count - 1; i++)
+    {
+        if (a.Contains(a[i]) == false)
+        {
+            resoult.Add(a[i]);
+        }
+    }
+    return resoult;
+    
+}
+static void Replace(List<string> list, int m, string e)
+{
+    if (m < 0 || m > list.Count - 1)
+    {
+        Console.WriteLine("");
+        return;
+    }
+    list[m] = e;
+}
+static void Main(string[] args)
+{
+    //intput
+    string[] input = Console.ReadLine().Split().ToArray();
+    List<string> output = new List<string>(input);
+    int n = int.Parse(Console.ReadLine());
+    for (int i = 0; i < n; i++)
+    {
+        string[] command = Console.ReadLine().Split(' ').ToArray();
+        switch (command[0])
+        {
+            case "Reverse": output = Reverse(output); break;
+            case "Distinct": output = Disctinct(output); break;
+            case "Replace":
+                {
+                    int m = int.Parse(command[1]);
+                    string e = command[2];
+                    Replace(output, m, e);
+                    break;
+                }
+            case "Insert": output = Reverse(output);
+                {
+                    int index = int.Parse()
+                    break;
+                }
+        }
+        Console.WriteLine(string.Join($", ", output));
+    }
